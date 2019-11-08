@@ -1,0 +1,76 @@
+﻿@model FuelInformaton.Models.Fuel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+@{ 
+    List<SelectListItem> listItems = new List<SelectListItem>();
+    listItems.Add(new SelectListItem
+    {
+        Text = "Petrol",
+        Value = "Petrol",
+        Selected = true
+    });
+    listItems.Add(new SelectListItem
+    {
+        Text = "Diesel",
+        Value = "Diesel"
+    });
+    listItems.Add(new SelectListItem
+    {
+        Text = "CNG",
+        Value = "CNG"
+    });
+    listItems.Add(new SelectListItem
+    {
+        Text = "High-Octane",
+        Value = "High-Octane"
+    });
+}
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Fuel</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Fuel_type, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Fuel_type, listItems, htmlAttributes: new { @class = "control-label col-md-4" })
+                @Html.ValidationMessageFor(model => model.Fuel_type, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Data_modified, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Data_modified,new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Data_modified, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
