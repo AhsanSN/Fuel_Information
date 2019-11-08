@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PricesModelStoreContainer" CdmEntityContainer="PricesEntities">
+    <EntitySetMapping Name="Fuels">
+      <EntityTypeMapping TypeName="PricesModel.Fuel">
+        <MappingFragment StoreEntitySet="Fuel">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Fuel_type" ColumnName="Fuel_type" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Data_modified" ColumnName="Data_modified" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
